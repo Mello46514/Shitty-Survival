@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvdj5xjud8pgm"]
+
+[ext_resource type="Script" path="res://Tree.gd" id="1_6bv83"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uul8i"]
+albedo_color = Color(0.184314, 0.133333, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_14s6v"]
+albedo_color = Color(0.141176, 0.145098, 0.0862745, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3lgrx"]
+height = 1.58493
+radius = 1.25377
+
+[node name="pine" type="Node3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+script = ExtResource("1_6bv83")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material = SubResource("StandardMaterial3D_uul8i")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30584, 0)
+radius = 1.33502
+height = 1.11052
+cone = true
+material = SubResource("StandardMaterial3D_14s6v")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7438, 0)
+radius = 1.16823
+height = 1.11052
+cone = true
+material = SubResource("StandardMaterial3D_14s6v")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25194, 0)
+radius = 0.958583
+height = 1.11052
+cone = true
+material = SubResource("StandardMaterial3D_14s6v")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.793, 0)
+shape = SubResource("CylinderShape3D_3lgrx")

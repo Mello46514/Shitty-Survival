@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx4f2xh40l45k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aik17"]
+albedo_color = Color(0.305882, 0.207843, 0, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_41d1y"]
+height = 5.94268
+radius = 1.52529
+
+[node name="RigidBody3D" type="RigidBody3D"]
+mass = 50.0
+gravity_scale = 1.5
+contact_monitor = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+calculate_tangents = false
+material = SubResource("StandardMaterial3D_aik17")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_41d1y")
