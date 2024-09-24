@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://pcl4cyx53ebl"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_42n2n"]
+[ext_resource type="PackedScene" uid="uid://ritxoqggxwtp" path="res://scug.glb" id="1_m7yx1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_64bro"]
+radius = 0.819467
+height = 3.3331
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_42n2n")
+
+[node name="model" parent="." instance=ExtResource("1_m7yx1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0826054, 0, 0.274579)
+
+[node name="jank look at thing" type="Node3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61176, 0)
+shape = SubResource("CapsuleShape3D_64bro")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(0.986337, 0.0692718, -0.149466, 0, 0.907294, 0.420498, 0.164738, -0.414752, 0.894898, 0, 2.11544, 1.03433)
+spring_length = 8.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
