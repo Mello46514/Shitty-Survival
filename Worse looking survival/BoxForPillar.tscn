@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://gusr386jqpbj"]
+
+[ext_resource type="Material" uid="uid://uy7b5ai1odyi" path="res://matte white.tres" id="1_gt04f"]
+[ext_resource type="Script" path="res://BoxForPillar.gd" id="1_j6v77"]
+
+[node name="CSGBox3D" type="CSGBox3D"]
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+material = ExtResource("1_gt04f")
+script = ExtResource("1_j6v77")
