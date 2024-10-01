@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://yghj8g15t7cs"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_bguek"]
+[ext_resource type="PackedScene" uid="uid://ritxoqggxwtp" path="res://scug.glb" id="1_drgsp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_b61ly"]
+radius = 0.523033
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_aqsms"]
+length = 0.987637
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ns4gp"]
+radius = 0.429633
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_6vnqh"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_bguek")
+
+[node name="model" parent="." instance=ExtResource("1_drgsp")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46085, 0)
+shape = SubResource("SphereShape3D_b61ly")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.995977, 0)
+shape = SubResource("SeparationRayShape3D_aqsms")
+
+[node name="parkour" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85568, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.954653, 0)
+shape = SubResource("SphereShape3D_ns4gp")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28133, 0)
+collision_mask = 4
+shape = SubResource("SeparationRayShape3D_6vnqh")
+spring_length = 6.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+fov = 120.0
+
+[node name="jank look at thing" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.881834, 0)
+light_energy = 0.25
+light_bake_mode = 0
+omni_range = 2.39611

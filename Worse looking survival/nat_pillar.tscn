@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://beybovdwbu2wt"]
+
+[ext_resource type="Script" path="res://nat_pillar.gd" id="1_38xpp"]
+[ext_resource type="Material" uid="uid://uy7b5ai1odyi" path="res://matte white.tres" id="2_6b61f"]
+
+[node name="NatPillar" type="CSGCombiner3D"]
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_38xpp")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material = ExtResource("2_6b61f")

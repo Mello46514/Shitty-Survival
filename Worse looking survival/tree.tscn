@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmi2udtddna4j"]
+
+[ext_resource type="Material" uid="uid://7ragxwoaioeo" path="res://green.tres" id="1_w3fhl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwa5s"]
+albedo_color = Color(0.219608, 0.152941, 0, 1)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D"]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70971, 0)
+height = 5.46314
+sides = 11
+material = SubResource("StandardMaterial3D_bwa5s")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.27261, 0)
+radius = 1.40679
+height = 2.3268
+sides = 14
+cone = true
+material = ExtResource("1_w3fhl")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.10696, 0)
+radius = 1.66456
+height = 2.3268
+sides = 13
+cone = true
+material = ExtResource("1_w3fhl")
